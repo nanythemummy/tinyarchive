@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="breadcrumb">
+    <a href="/"> Tiny Library  </a>
+</div>
+<div class="page_title">
+    The Archive
+</div>
+
+
+<div class="content">
+    {% if archive_items %}
+    <table>
+        <thead>
+            <th> Preview </th>
+            <th> Name </th>
+            <th> Description </th>
+        </thead>
+        <tbody>
+            {% for item in archive_items %}
+            <td><a href="{{item.id}}"><img src="{% get_media_prefix %}{{item.thumbnail}}"></td>
+            <td><a href="{{item.id}}">{{item.name}}</a></td>
+            <td>{{item.description}}</td>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No items in the archive yet!</p>
+    {% endif %}
+</div>
+
+{% endblock %}
