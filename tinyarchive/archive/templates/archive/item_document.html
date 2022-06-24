@@ -12,9 +12,14 @@
         <img src="{% get_media_prefix %}{{ item.picture }}" height=50%, width= 50% alt="{{ item.name }}">
     </div>
     <div class="info">
-        <p>
-            {{item.description}}
-        </p>
+        <ul>
+            <li>Language: {{item.language}}</li>
+            <li>Description: <p>{{item.description}}</p> </li>
+        </ul>
     </div>
+    <div class="transcription">
+        Transcription: <p>{{item.transcription}}</p>
+    </div>
+    
 </div>
 {% endblock %}

@@ -1,6 +1,9 @@
+from re import template
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Photograph
+from .models import ArchiveDocument, Photograph
+from model_utils.managers import InheritanceManager
+from .consts import Choices
 
 
 def index(request):
@@ -10,7 +13,7 @@ def index(request):
         be filled and the template will receive a blank list.
     """
     try:
-        archive_items = Photograph.objects.all()
+        archive_items = ArchiveDocument.objects.all()
         for item in archive_items:
             print(item.photo_image.thumbnail)
             archive_item_info = {
@@ -29,14 +32,28 @@ def index(request):
 
 def item_detail(request, item_id):
     context = {}
+    template_to_render = ""
     try:
-        archive_item = Photograph.objects.get(id=item_id)
+        archive_item = ArchiveDocument.objects.get_subclass(id=item_id)
         context["item"] = {
             "name": archive_item.name,
             "picture": archive_item.photo_image,
             "description": archive_item.description,
         }
+        if isinstance(archive_item, Photograph):
+            template_to_render = "archive/photo.html"
+            # Photo type is the user-readable version of the Photo Type, as described in Consts.
+            context["item"]["photo_type"] = Choices.PHOTO_TYPE_CHOICES[
+                archive_item.photo_type
+            ]
+            template_to_render = "archive/item_photograph.html"
+        else:
+            context["item"]["transcription"] = archive_item.transcription
+            context["item"]["language"] = archive_item.language
+            template_to_render = "archive/item_document.html"
 
     except Exception as e:
         print(e)
-    return render(request, "archive/item_detail.html", context)
+        raise e
+    print(template_to_render)
+    return render(request, template_to_render, context)
