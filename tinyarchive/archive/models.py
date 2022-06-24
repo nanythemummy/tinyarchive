@@ -2,7 +2,7 @@ from django.db import models
 from model_utils.managers import InheritanceManager
 from django.forms import CharField
 from stdimage import StdImageField
-from .consts import *
+from archive.consts import *
 
 
 class ArchiveDocument(models.Model):

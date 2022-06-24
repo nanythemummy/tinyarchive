@@ -1,15 +1,15 @@
 from re import template
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import ArchiveDocument, Photograph
+from archive.models import ArchiveDocument, Photograph
 from model_utils.managers import InheritanceManager
-from .consts import Choices
+from archive.consts import Choices
 
 
 def index(request):
     context = {}
     items_to_list = []
-    """ Tries to get any photographs. If there aren't any, list won't 
+    """ Tries to get any items. If there aren't any, list won't 
         be filled and the template will receive a blank list.
     """
     try:
@@ -24,7 +24,9 @@ def index(request):
             }
 
             items_to_list.append(archive_item_info)
-    except Exception as e:
+    except ArchiveDocument.DoesNotExist as e:
+        #This exception gets suppressed and we pass an empty context to the template.
+        #the template will know what to do with it. All other exceptions get raised.
         print(e)
     context["archive_items"] = items_to_list
     return render(request, "archive/index.html", context)
