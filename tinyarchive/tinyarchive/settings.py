@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'stdimage',
+    'dublincore',
     'archive.apps.ArchiveConfig',
     'exhibit.apps.ExhibitConfig',
     'django.contrib.admin',
