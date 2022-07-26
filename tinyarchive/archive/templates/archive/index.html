@@ -20,7 +20,11 @@
         <tbody>
             {% for item in archive_items %}
             <tr>
-                <td><a href="{{item.id}}"><img src="{% get_media_prefix %}{{item.thumbnail}}"></td>
+                {% if item.thumbnail %}
+                    <td><a href="{{item.id}}"><img src="{% get_media_prefix %}{{item.thumbnail}}"></td>
+                {% else %}
+                    <td></td>
+                {% endif %}
                 <td><a href="{{item.id}}">{{item.name}}</a></td>
                 <td>{{item.description}}</td>
             </tr>

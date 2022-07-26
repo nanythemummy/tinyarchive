@@ -1,6 +1,11 @@
 from django.contrib import admin
-from archive.models import Photograph,Document
+from archive.models import Photograph,Document,AssociatedImage
 # Register your models here.
 
-admin.site.register(Photograph)
-admin.site.register(Document)
+class AssociatedImageInline(admin.StackedInline):
+    model = AssociatedImage
+    extra = 1
+class DocumentAdmin(admin.ModelAdmin):
+    inlines = [AssociatedImageInline]
+admin.site.register(Photograph,DocumentAdmin)
+admin.site.register(Document, DocumentAdmin)

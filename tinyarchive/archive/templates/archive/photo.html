@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="breadcrumb">
+    <a href="/"> Tiny Library </a> / <a href="/archive/"> Archive/ </a> <a href= "/archive/{{item.related_id}}"> {{item.related_name}} </a>
+</div>
+<div class="page_title">
+    {{item.name}}
+</div>
+<div class="content">
+    <div class="image">
+        <img src="{% get_media_prefix %}{{ item.picture }}"  alt="{{ item.name }}">
+    </div>
+    <div class="info">
+        <ul>
+            <li>Creator: {{item.creator}}</li>
+            <li>Description: <p>{{item.description}}</p> </li>
+        </ul>
+    </div>  
+</div>
+{% endblock %}
