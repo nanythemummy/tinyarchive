@@ -1,3 +1,4 @@
+
 from django.db import models
 from model_utils.managers import InheritanceManager
 from django.forms import CharField
@@ -20,6 +21,20 @@ class ArchiveDocument(models.Model):
         variations={"thumbnail": {"width": 300, "height": 300}},
     )
 
+class AssociatedImage(models.Model):
+ 
+    name = models.CharField(max_length = 200)
+    description = models.TextField(blank=True)
+    associated_doc = models.ForeignKey(ArchiveDocument,blank = False,null=False,on_delete=models.CASCADE)
+    creator = models.CharField(max_length=200)
+    photo_image = StdImageField(
+        upload_to="photographs/",
+        variations={"thumbnail": {"width": 300, "height": 300}},
+        null=False
+    )
+    def __str__(self):
+        return(self.photo_image.url)
+    
 
 class Photograph(ArchiveDocument):
     photo_type = models.CharField(
