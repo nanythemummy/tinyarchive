@@ -13,6 +13,7 @@ class ArchiveDocument(models.Model):
             return self.id
     objects=InheritanceManager()
     name = models.CharField(max_length=200)
+    creator = models.CharField(max_length = 300, blank=True)
     description = models.TextField(blank=True, null=False)
     photo_image = StdImageField(
         upload_to="photographs/",
