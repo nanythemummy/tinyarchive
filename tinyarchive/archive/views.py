@@ -16,11 +16,10 @@ def index(request):
         archive_items = ArchiveDocument.objects.all()
         for item in archive_items:
             #get all available photos.
-            photos = AssociatedImage.objects.filter(id = item.id)
+            photos = AssociatedImage.objects.filter(associated_doc = item.id)
             thumb = None
             if photos:
                 thumb = photos[0].photo_image.thumbnail
-            print(item.photo_image.thumbnail)
             archive_item_info = {
                 "id": item.id,
                 "thumbnail": thumb,

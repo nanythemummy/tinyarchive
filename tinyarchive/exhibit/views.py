@@ -1,7 +1,7 @@
 from re import template
 from django.shortcuts import render
 from django.http import HttpResponse
-from archive.models import ArchiveDocument
+from archive.models import ArchiveDocument, AssociatedImage
 from .models import Exhibit
 
 
@@ -36,11 +36,16 @@ def exhibit_detail(request, exhibit_id):
         "exhibit_items": [],
     }
     for item in archive_items:
+        picsforitem = AssociatedImage.objects.filter(associated_doc = item.id)
+        img = ""
+        if picsforitem:
+            img = picsforitem[0].photo_image.thumbnail
+            
         exhibit_item = {
             "id": item.id,
             "name":item.name,
             "description": item.description,
-            "image": item.photo_image.thumbnail,
+            "image": img,
         }
         context["exhibit_items"].append(exhibit_item)
     return render(request,"exhibit/detail.html", context)
