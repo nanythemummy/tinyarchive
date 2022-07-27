@@ -1,7 +1,7 @@
 from re import template
 from django.shortcuts import render
 from django.http import HttpResponse
-from archive.models import ArchiveDocument, Photograph, AssociatedImage
+from archive.models import ArchiveDocument, Photograph, AssociatedImage, Artifact
 from model_utils.managers import InheritanceManager
 from archive.consts import Choices
 
@@ -32,7 +32,9 @@ def index(request):
         #This exception gets suppressed and we pass an empty context to the template.
         #the template will know what to do with it. All other exceptions get raised.
         print(e)
+   
     context["archive_items"] = items_to_list
+    print(context)
     return render(request, "archive/index.html", context)
 
 def photo_detail(request,item_id):
@@ -69,6 +71,10 @@ def item_detail(request, item_id):
                 archive_item.photo_type
             ]
             template_to_render = "archive/item_photograph.html"
+        elif isinstance(archive_item, Artifact):
+            context["item"]["material"] = archive_item.material
+            context["item"]["3dmodel"] = archive_item.model3d
+            template_to_render = "archive/item_artifact.html"
         else:
             context["item"]["transcription"] = archive_item.transcription
             context["item"]["language"] = archive_item.language

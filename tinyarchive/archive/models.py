@@ -1,7 +1,7 @@
 
 from django.db import models
 from model_utils.managers import InheritanceManager
-from django.forms import CharField
+from django.forms import CharField, URLField
 from stdimage import StdImageField
 from archive.consts import *
 
@@ -12,29 +12,34 @@ class ArchiveDocument(models.Model):
             return self.name
         else:
             return self.id
-    objects=InheritanceManager()
+    objects = InheritanceManager()
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=False)
-    creator = models.CharField(max_length = 50,blank = "True")
+    creator = models.CharField(max_length=50, blank="True")
     photo_image = StdImageField(
         upload_to="photographs/",
         variations={"thumbnail": {"width": 300, "height": 300}},
+        null=True,
+        blank = True,
     )
 
+
 class AssociatedImage(models.Model):
- 
-    name = models.CharField(max_length = 200)
+
+    name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    associated_doc = models.ForeignKey(ArchiveDocument,blank = False,null=False,on_delete=models.CASCADE)
-    creator = models.CharField(max_length=200)
+    associated_doc = models.ForeignKey(
+        ArchiveDocument, blank=False, null=False, on_delete=models.CASCADE)
+    creator = models.CharField(max_length=200, blank=True)
     photo_image = StdImageField(
         upload_to="photographs/",
         variations={"thumbnail": {"width": 300, "height": 300}},
         null=False
     )
+
     def __str__(self):
         return(self.photo_image.url)
-    
+
 
 class Photograph(ArchiveDocument):
     photo_type = models.CharField(
@@ -43,6 +48,21 @@ class Photograph(ArchiveDocument):
             Choices.PHOTO_TYPE_CHOICES.items()
         ),  # defining the constant as a dictionary for easy lookup in views.
     )
+
+
+class Artifact(ArchiveDocument):
+    MAT_OTHER = 'other'
+    MAT_PLASTIC = 'plastic'
+    MAT_CERAMIC = 'ceramic'
+    MAT_GLASS = 'glass'
+
+    MATERIAL_CHOICES = [(MAT_OTHER, "Other"),
+                        (MAT_PLASTIC, "Plastic"),
+                        (MAT_CERAMIC, "Ceramic"),
+                        (MAT_GLASS, "Glass")]
+    material = models.CharField(
+        max_length=50, choices=MATERIAL_CHOICES, default=MAT_GLASS)
+    model3d = models.URLField(max_length=500, blank="True")
 
 
 class Document(ArchiveDocument):
