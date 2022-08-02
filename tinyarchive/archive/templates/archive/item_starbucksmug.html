@@ -1,0 +1,10 @@
+<!--I made a copy of item_document.html to be starbucksmug.html so that views.py can work, but we would need to rewrite it to display what we want-->
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="breadcrumb">
+    <a href="/"> Tiny Library </a> / <a href= "/archive"> Archive </a>
+</div>
+<div class="page_title">
+    {{item.name}}
+{% endblock %}

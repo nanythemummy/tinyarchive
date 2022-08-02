@@ -1,7 +1,7 @@
 from re import template
 from django.shortcuts import render
 from django.http import HttpResponse
-from archive.models import ArchiveDocument, Photograph, AssociatedImage, Artifact
+from archive.models import ArchiveDocument, Photograph, AssociatedImage, Artifact, StarbucksMug
 from model_utils.managers import InheritanceManager
 from archive.consts import Choices
 
@@ -75,6 +75,21 @@ def item_detail(request, item_id):
             context["item"]["material"] = archive_item.material
             context["item"]["3dmodel"] = archive_item.model3d
             template_to_render = "archive/item_artifact.html"
+        elif isinstance(archive_item, StarbucksMug):
+            context["item"]["productionLocation"] = archive_item.productionLocation
+            context["item"]["displayedLocation"] = archive_item.displayedLocation
+            context["item"]["sizeOunces"] = archive_item.sizeOunces
+            context["item"]["date"] = archive_item.date
+            context["item"]["subject"] = archive_item.subject
+            context["item"]["shapeDescription"] = archive_item.shapeDescription
+            context["item"]["color"] = archive_item.color
+            context["item"]["text"] = archive_item.text
+            context["item"]["material"] = archive_item.material
+            context["item"]["season"] = archive_item.season
+            context["item"]["holiday"] = archive_item.holiday
+            context["item"]["productLink"] = archive_item.productLink
+            context["item"]["link3DModel"] = archive_item.link3DModel
+            template_to_render = "archive/item_starbucksmug.html"
         else:
             context["item"]["transcription"] = archive_item.transcription
             context["item"]["language"] = archive_item.language

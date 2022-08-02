@@ -1,7 +1,8 @@
 
+from readline import get_current_history_length
 from django.db import models
 from model_utils.managers import InheritanceManager
-from django.forms import CharField, URLField
+from django.forms import CharField, URLField, DateField
 from stdimage import StdImageField
 from archive.consts import *
 
@@ -71,3 +72,50 @@ class Document(ArchiveDocument):
     # and codes?
     language = models.CharField(max_length=200)
     transcription = models.TextField(blank=True, null=False)
+
+
+#adding a new model for mugs
+#inherits from ArchiveDocument
+class StarbucksMug(ArchiveDocument):
+    productionLocation = models.CharField(blank = True, max_length = 500) #where the mug was made
+    displayedLocation = models.CharField(blank = True, max_length = 500) #what location the mug shows
+    sizeOunces = models.IntegerField() #size in ounces
+    #date = models.CharField(blank = True, max_length = 500)
+    date = models.DateField(blank = True, auto_now=False, auto_now_add=False) #when it was made
+    subject = models.CharField(max_length = 500) #what does the mug depict
+    shapeDescription = models.TextField(null = False) #description of the mug shape
+    
+    #color options
+    COL_RED = 'red'
+    COL_ORANGE = 'orange'
+    COL_YELLOW = 'yellow'
+    COL_GREEN = 'green'
+    COL_BLUE = 'blue'
+    COL_PURPLE = 'purple'
+    COL_BLACK = 'black'
+    COL_WHITE = 'white'
+    COL_GRAY = 'gray'
+    COL_BROWN = 'brown'
+    COL_MULTI = 'multi' #multiple colors
+    COL_OTHER = 'other' 
+    COLOR_CHOICES = [(COL_RED, "Red"), (COL_ORANGE, "Orange"), (COL_YELLOW, "Yellow"),
+                    (COL_GREEN, "Green"), (COL_BLUE, "Blue"), (COL_PURPLE, "Purple"), 
+                    (COL_BLACK, "Black"), (COL_WHITE, "White"), (COL_GRAY, "Gray"),
+                    (COL_BROWN, "Brown"), (COL_MULTI, "Multi"), (COL_OTHER, "Other")]
+    color = models.CharField(max_length=500, choices=COLOR_CHOICES, default=COL_MULTI)
+    
+    #season options
+    SEA_SUMMER = 'summer'
+    SEA_FALL = 'fall'
+    SEA_WINTER = 'winter'
+    SEA_SPRING = 'spring'
+    SEA_NONE = 'none'
+    SEA_CHOICES = [(SEA_SUMMER, "Summer"), (SEA_FALL, "Fall"), (SEA_WINTER, "Winter"), (SEA_SPRING, "Spring"), (SEA_NONE, "None")]
+    season = models.CharField(max_length = 500, choices = SEA_CHOICES, default = SEA_NONE)
+    
+    holiday = models.CharField(blank = True, max_length = 500)
+    text = models.TextField(blank = True, null = False) #text on the mug
+    material = models.CharField(max_length = 500) #what the mug is made out of
+
+    productLink = models.URLField(max_length = 500) #link to website with prodcut
+    link3DModel = models.URLField(max_length = 500, blank = "True") #link to 3d model, if available
