@@ -21,7 +21,17 @@
         <ul>
             <li>Material: {{item.material}}</li>
             <li>Description: <p>{{item.description}}</p> </li>
-            <li>URL: <a href = "{{item.3dmodel}}"> {{item.3dmodel}} </a></li>
+            <!--if a 3d model exists, insert an iframe to a url for it. This code assumes that the sketchfab embedding code will work. 
+            IF you would like it to be bigger or otherwise different in appearance, style the class sketchfab_embed_wrapper element
+            with CSS-->
+            {% if item.3dmodel %}
+            <div class="sketchfab-embed-wrapper">
+                <iframe title="Railroad Spike" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="{{item.3dmodel}}/embed">  </iframe> 
+                <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> 
+                    <a href="{{item.3dmodel}}" target="_blank">{{item.name}} on Sketchfab</a>
+                </p>
+            </div>
+            {% endif %}
         </ul>
     </div>
 
