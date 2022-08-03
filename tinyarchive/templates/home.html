@@ -1,16 +1,200 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+<style>
+*{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.page_title{
+    text-align: center;
+    font-size: 36px;
+    font-style:italic;
+    color:black;
+    width: auto;
+    height: 200px;
+    position: relative;
+}
+
+.page_title .first{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    margin: 0;
+    position: absolute;
+    right: 50%;
+    top: 0;
+    font-size: 75px; 
+
+}
+
+.page_title .second{
+    margin-top: -45px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 65px; 
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.breadcrumb {
+    color:black;
+}
+
+.intro {
+    margin-top: -15px;
+    margin-bottom: 25px;
+    text-align : center;
+    font-family:"Arial";
+    color:black;
+    font-size: 22px;
+    font-style:italic;
+    font-family: italic;
+}
+
+.intro:hover{
+    font-weight: bold;
+}
+
+/* list */
+.container{
+    margin: 0;
+    padding:0;
+    list-style: none;
+    width:auto; 
+    height:150px;
+    text-align: center;    
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(60,60,70);
+    margin-bottom: 25px;
+}
+
+.container > li{
+    margin-left: -50px;
+}
+
+.container > li > a{
+    color: rgb(77, 76, 76);
+    font-size: 22px;
+    text-decoration: none;
+}
+
+.container li a{
+    color: rgb(155, 143, 143);
+    cursor: pointer;
+    transition: .5s;
+    transition-delay: clac(var(--i)*.1s);
+    font-weight: bold;
+}
+
+.container li a:hover{
+   color: #fff;
+   text-shadow: 0 0 10px #fff,
+   0 0 20px #fff,
+   0 0 30px #fff,
+   0 0 50px #fff,
+   0 0 70px #fff
+}
+
+/* image */
+.images{
+    width: 100%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: center;
+}
+
+.images .images-top,
+.images .images-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.images img{
+    width: 100%;
+    max-width: 300px;
+    min-height: 300px;
+    max-height: 304px;
+}
+
+
+
+
+</style>
+
 <div class="page_title">
-   <h1> The Tiny Library </h1>
+    <p class="first">The Tiny</p>
+    <p class="second">Library of Camera</p>
 </div>
+
+
 <div class="intro">
-    We are happy to meet you! We are small, but still growing.
+    <p>Wonderful moments,Eternal images.</p>
 </div>
-<ul>
-    <li><a href="archive/">Archives</a> </li>
-    <li> <a href="exhibit/"> Exhibits </a></li>
-    <li> About Us </li>
+
+
+<ul class="container">
+    <li> 
+        <a href="archive/"> Archives</a> 
+    </li> 
+    <li> 
+        <a href="exhibit/"> Exhibits </a>
+    </li>
+    <li> 
+        <a href="about us"> About Us</a>
+    </li>
+
 </ul>
+
+<div class="images">
+    <ul class="images-top">
+        <li>
+            <img class="img1" src = '{% static "images/img1.jpg"%}' alt="">
+        </li>
+        <li>
+            <img class="img1" src = '{% static "images/img2.jpg"%}' alt="">
+        </li>
+        <li>
+            <img class="img1" src="{% static 'images/img3.jpg' %}" alt="">
+        </li>
+        <li>
+            <img class="img1" src="{% static 'images/img4.jpg' %}" alt="">
+        </li>
+    </ul>
+    <ul class="images-bottom">
+        <li>
+            <img class="img3" src = '{% static "images/img5.jpg"%}' alt="">
+        </li>
+        <li>
+            <img class="img3" src = '{% static "images/img6.jpg"%}' alt="">
+        </li>
+        <li>
+            <img class="img3" src = '{% static "images/img7.jpg"%}' alt="">
+        </li>
+        <li>
+            <img class="img3" src = '{% static "images/img8.jpg"%}' alt="">
+        </li>
+    </ul>
+</div>
+
+
 
 {% endblock %}
