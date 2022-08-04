@@ -1,5 +1,5 @@
 from django.contrib import admin
-from archive.models import Photograph,Document,AssociatedImage, Artifact
+from archive.models import Photograph, AssociatedImage, Artifact, Document
 # Register your models here.
 
 class AssociatedImageInline(admin.StackedInline):

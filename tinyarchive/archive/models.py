@@ -72,4 +72,23 @@ class Document(ArchiveDocument):
     # just enter variant spellings for language names--a preformated list of standard names
     # and codes?
     language = models.CharField(max_length=200)
-    transcription = models.TextField(blank=True, null=False)
+    contributor_names = models.CharField(max_length=500, default="N/A")
+    location_published = models.CharField(max_length=500, default="N/A")
+    subject_headings = models.TextField(blank=True, null=False)
+    GENRE_WEB = 'website'
+    GENRE_OTHER = 'other'
+    GENRE_CHOICES = [(GENRE_WEB, "Website"),
+                     (GENRE_OTHER, "Other")]
+    genre = models.CharField(max_length=50, choices=GENRE_CHOICES, default=GENRE_WEB)
+    FORM_ELECTRONIC = "electronic"
+    FORM_OTHER = 'other'
+    FORM_CHOICES = [(FORM_ELECTRONIC, "Electronic"),
+                     (FORM_OTHER, "Other")]
+    form = models.CharField(max_length=50, choices=FORM_CHOICES, default=FORM_ELECTRONIC)
+    ONLINE_FORMAT_WEB = "web page"
+    ONLINE_FORMAT_OTHER = "other"
+    ONLINE_FORMAT_CHOICES = [(ONLINE_FORMAT_WEB, "Web Page"),
+                             (ONLINE_FORMAT_OTHER, "Other")]
+    online_format = models.CharField(max_length=50, choices=ONLINE_FORMAT_CHOICES, default=ONLINE_FORMAT_WEB)
+    source_URL = models.TextField(blank=True, null=False)
+    PDF = models.FileField(upload_to="uploads/", default="N/A")
