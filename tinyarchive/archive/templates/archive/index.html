@@ -1,12 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="breadcrumb">
-    <a href="/"> Tiny Library  </a>
-</div>
-<div class="page_title">
+
+<!-- title -->
+<div class="title">
     The Archive
 </div>
+
+<!-- menue bar -->
+<ul class="container">
+    <li> 
+        <a href="/">Tiny Library</a> 
+    </li> 
+    <li> 
+        <a href="exhibit/"> Exhibits </a>
+    </li>
+    <li> 
+        <a href="about us/"> About Us</a>
+    </li>
+
+</ul>
 
 
 <div class="content">
@@ -19,14 +32,14 @@
         </thead>
         <tbody>
             {% for item in archive_items %}
-            <tr>
+            <tr>    
                 {% if item.thumbnail %}
-                    <td><a href="{{item.id}}"><img src="{% get_media_prefix %}{{item.thumbnail}}"></td>
+                    <td class="picture"><a href="{{item.id}}"><img src="{% get_media_prefix %}{{item.thumbnail}}"></td>
                 {% else %}
                     <td></td>
                 {% endif %}
-                <td><a href="{{item.id}}">{{item.name}}</a></td>
-                <td>{{item.description}}</td>
+                <td class="name"><a href="{{item.id}}">{{item.name}}</a></td>
+                <td class="description">{{item.description}}</td>
             </tr>
             {% endfor %}
         </tbody>

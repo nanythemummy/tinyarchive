@@ -1,12 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="breadcrumb">
-    <a href="/"> Tiny Library </a>
-</div>
-<div class="page_title">
+
+<div class="title">
     Exhibits
 </div>
+
+
+<!-- menue bar -->
+<ul class="container">
+    <li> 
+        <a href="/">Tiny Library</a> 
+    </li> 
+    <li> 
+        <a href="exhibit/"> Exhibits </a>
+    </li>
+    <li> 
+        <a href="about us/"> About Us</a>
+    </li>
+
+</ul>
+
 <div class="content">
     {% if exhibits %}
     <ul>
