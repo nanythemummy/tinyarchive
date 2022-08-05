@@ -1,3 +1,33 @@
+body{
+    background-color:black;
+}
 h1{
-    color:blueviolet;
+    color:white;
+    font-size: 36pt;
+}
+p em{
+    color:rgb(245, 255, 177);
+    font-weight: bold;
+}
+p{
+    color:white;
+}
+.background-violet{
+    background-color: rgba(255, 55, 98, 0.117); 
+}
+ul{
+    color:rgba(235, 210, 47, 0.865);
+}
+nav ul{
+    display: flex;
+    list-style: none }
+nav ul li{
+    margin:50px;
+    padding: 1px;
+    border:1px solid rgba(255, 55, 98, 0.117);
+}
+.container{
+    margin: 30px;
+    background-image:url(https://i.pinimg.com/474x/26/59/88/265988df777bac5ab0c572989096a8c0.jpg);
+    height:100%;
 }
