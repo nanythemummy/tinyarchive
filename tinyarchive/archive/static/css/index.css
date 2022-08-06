@@ -1,0 +1,54 @@
+/* content */
+.content{
+    width: 100%;
+    height: 100%;
+    margin: 40px 0 40px 140px;
+    text-align: center;
+}
+
+/* add veritcal distance bewteen each tr element */
+.content table{
+    border-collapse:separate; 
+    border-spacing: 60px 30px;
+}
+
+.content thead{
+    font-size: 28px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* add space between tbody and thead by using ::before */
+.content tbody::before{
+    content: "";
+    display: block;
+    height: 30px;
+}
+
+/* text hover effect */
+.content .name a{
+    cursor: pointer;
+    transition: .5s;
+    transition-delay: clac(var(--i)*.1s); /* 延迟光0.1s  */
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+}
+
+.content .name a:hover{
+    color: #333;
+    text-shadow: 0 0 10px #333,
+    0 0 20px #fff,
+    0 0 30px #fff,
+    0 0 50px #fff,
+    0 0 70px #fff
+ }
+
+/* text change line */
+.content .description{
+    width: 455px;
+    word-break: break-all;
+}
+
