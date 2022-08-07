@@ -1,0 +1,25 @@
+.exhibit_items{
+    text-align: center;
+    width: 100%;
+    margin: 0 70px;
+}
+
+.exhibit_item{
+    width: 800px;
+}
+
+.exhibit_item .name{
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+}
+
+.exhibit_item li{
+    margin: 20px 0;
+}
+
+.exhibit_text{
+    width: 800px;
+    text-align: center;
+    margin: 0 70px;
+}

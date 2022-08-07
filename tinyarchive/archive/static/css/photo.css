@@ -1,0 +1,40 @@
+/* banner picture */
+
+.banner{
+    width: 980px;
+    height: 540px;
+    margin: 50px auto;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,.5);
+    overflow: hidden;
+}
+
+.banner .img img{
+    width: 980px;
+    height: 540px;
+}
+
+.breadcrumb{
+    margin: 20px;
+}
+
+.breadcrumb a{
+    cursor: pointer;
+    transition: .5s;
+    transition-delay: clac(var(--i)*.1s); /* 延迟光0.1s  */
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: italic;
+}
+
+.breadcrumb a:hover{
+    color: #333;
+    text-shadow: 0 0 10px #333,
+    0 0 20px #fff,
+    0 0 30px #fff,
+    0 0 50px #fff,
+    0 0 70px #fff
+ }

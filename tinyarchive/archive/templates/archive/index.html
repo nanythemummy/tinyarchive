@@ -1,6 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+<style>
+
+    .model a{
+        text-decoration: none;
+        text-align: center;
+        color: #333;
+        font-size: 22px;
+        display: block;
+        margin-bottom: 20px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+</style>
+
 <!-- title -->
 <div class="title">
     The Archive
@@ -40,6 +55,7 @@
                 <td class="name"><a href="{{item.id}}">{{item.name}}</a></td>
                 <td class="description">{{item.description}}</td>
             </tr>
+
             {% endfor %}
         </tbody>
     </table>
@@ -47,6 +63,15 @@
     <p>No items in the archive yet!</p>
     {% endif %}
 </div>
+
+<div class="model">
+    <h4 class="title" style="font-size: 50px;">
+        3D Model
+    </h4>
+    <a href="https://skfb.ly/owNpR" >Canon 7D</a>
+    <a href="https://skfb.ly/owLPK">Minolta</a>
+</div>
+    
 
 
 

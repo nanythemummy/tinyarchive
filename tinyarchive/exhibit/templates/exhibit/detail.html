@@ -17,7 +17,7 @@
                         {% if item.image %}
                         <li><a href="/archive/{{item.id}}"><img src="{% get_media_prefix %}{{item.image}}" /></a></li>
                         {% endif %}
-                        <li><a href="/archive/{{item.id}}">{{item.name}}</a></li>
+                        <li><a class="name" href="/archive/{{item.id}}">{{item.name}}</a></li>
   
                         <li>{{item.description}}</li>
                     </ul>

@@ -2,6 +2,53 @@
 {% load static %}
 {% block content %}
 
+<style>
+
+.main{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin: 40px;
+}
+
+.main ul{
+    display: inline-block;
+    width: 700px;
+    
+}
+
+.main ul a{
+    text-decoration: none;
+    color: #333;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .5s;
+    transition-delay: clac(var(--i)*.1s); /* 延迟光0.1s  */
+}
+
+.main ul a:hover{
+    color: #333;
+    text-shadow: 0 0 10px #333,
+    0 0 20px #fff,
+    0 0 30px #fff,
+    0 0 50px #fff,
+    0 0 70px #fff
+ }
+
+ .main ul li{
+    margin-bottom: 20px;
+ }
+
+ .main ul .text{
+    margin-left: 5px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+ }
+
+
+</style>    
+
 <div class="title">
     Exhibits
 </div>
@@ -13,20 +60,22 @@
         <a href="/">Tiny Library</a> 
     </li> 
     <li> 
-        <a href="exhibit/"> Exhibits </a>
+        <a href="/archive"> Archive </a>
     </li>
     <li> 
-        <a href="about us/"> About Us</a>
+        <a href="/about us"> About Us</a>
     </li>
 
 </ul>
 
-<div class="content">
+<div class="main">
     {% if exhibits %}
     <ul>
         {% for exhibit in exhibits %}
         <li>
-            <div class="exhibit"><a href="{{exhibit.id}}">{{exhibit.name}} </a> : {{exhibit.snippet}} </div>
+            <div class="exhibit">
+                <a href="{{exhibit.id}}">{{exhibit.name}}: </a> <i class="text"> {{exhibit.snippet}} </i>
+            </div>
         </li>
         {% endfor %}
     </ul>

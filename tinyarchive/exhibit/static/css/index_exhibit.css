@@ -1,0 +1,11 @@
+.main{
+    text-align: center;
+    width: 600px;
+    height: 100%;
+    margin: 40px;
+}
+
+.main ul{
+    display: inline-block;
+    
+}
