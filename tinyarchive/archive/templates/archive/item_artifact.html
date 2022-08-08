@@ -1,6 +1,43 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<style>
+.image{
+    width: 980px;
+    height: 540px;
+    margin: 50px 0;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,.5);
+    overflow: hidden;
+    margin-left: 70px;
+}
+
+.image > .gallery{
+    width: 490px;
+    height: 540px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    transition: all .5s;
+}
+
+.content > .image > .gallery > a,
+.content > .image > .gallery > a >img{
+    width: 980px;
+    height: 540px;
+}
+
+.info{
+    margin-top: 30px;
+    margin-left: -200px;
+    text-align: center;
+}
+
+</style>
+
+
 <div class="breadcrumb">
     <a href="/"> Tiny Library </a> / <a href= "/archive"> Archive </a>
 </div>
@@ -10,9 +47,11 @@
 <div class="content">
     <div class="image">
         {% if item.pictures %}
-        <div class = "gallery"></div>
+        <div class = "gallery">
         {% for pic in item.pictures %}
-            <a href="/archive/photos/{{pic.id}}"> <img src="{% get_media_prefix %}{{ pic.picture }}" alt="{{ item.name }}"> </a>
+            <a href="/archive/photos/{{pic.id}}"> 
+                <img src="{% get_media_prefix %}{{ pic.picture }}" alt="{{ item.name }}"> 
+            </a>
         {% endfor %}
         </div>
     {% endif %}
