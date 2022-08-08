@@ -4,8 +4,11 @@ from django.http import HttpResponse
 from archive.models import ArchiveDocument, Photograph, AssociatedImage, Artifact
 from model_utils.managers import InheritanceManager
 from archive.consts import Choices
+from django.views.decorators.clickjacking import xframe_options_sameorigin,xframe_options_exempt
 
-
+#set x-frame-option to solve deny problem
+""" @xframe_options_sameorigin """
+@xframe_options_exempt
 def index(request):
     context = {}
     items_to_list = []
