@@ -88,7 +88,6 @@ def item_detail(request, item_id):
             context["item"]["online_format"] = archive_item.online_format
             context["item"]["source_URL"] = archive_item.source_URL
             context["item"]["PDF"] = archive_item.PDF
-            context["item"]["language"] = archive_item.language
             template_to_render = "archive/item_document.html"
 
     except Exception as e:
