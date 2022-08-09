@@ -53,7 +53,7 @@
                     <td></td>
                 {% endif %}
                 <td class="name"><a href="{{item.id}}">{{item.name}}</a></td>
-                <td class="description">{{item.description}}</td>
+                <td class="description">{{item.description|linebreaks}}</td>
             </tr>
 
             {% endfor %}
