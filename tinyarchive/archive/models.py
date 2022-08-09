@@ -71,10 +71,12 @@ class Document(ArchiveDocument):
     # might want to do something to standardize this later so people can't
     # just enter variant spellings for language names--a preformated list of standard names
     # and codes?
+    title = models.CharField(max_length=500, default="N/A")
     language = models.CharField(max_length=200)
     contributor_names = models.CharField(max_length=500, default="N/A")
     location_published = models.CharField(max_length=500, default="N/A")
     subject_headings = models.TextField(blank=True, null=False)
+    summary = models.TextField(blank=True, null=False)
     GENRE_WEB = 'website'
     GENRE_OTHER = 'other'
     GENRE_CHOICES = [(GENRE_WEB, "Website"),

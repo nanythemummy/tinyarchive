@@ -7,6 +7,10 @@
 <div class="page_title">
     {{item.name}}
 </div>
+<div class="page_title">
+   <b> Title:</b> {{item.title}}</li>
+
+</div>
 <div class="content">
     <div class="image">
         {% if item.pictures %}
@@ -19,13 +23,23 @@
     </div>
     <div class="info">
         <ul>
-            <li>Language: {{item.language}}</li>
-            <li>Description: <p>{{item.description}}</p> </li>
+            <li><b> PDF:</b> <p>{{item.PDF}}</p> </li>
+            <li><b> Description:</b>  <p>{{item.description}}</p> </li>
+            <li><b> Language:</b>  <p>{{item.language}}</p></li>
+            <li><b> Contributor Names:</b>  <p>{{item.contributor_names}}</p> </li>
+            <li><b> Location Published:</b>  <p>{{item.location_published}}</p> </li>
+            <li><b> Summary:</b>  <p>{{item.summary}}</p> </li>
+            <li><b> Subject Headings:</b>  
+                <p>{{item.subject_headings}}</p> </li>
+            <li><b> Genre:</b>  <p>{{item.genre}}</p> </li>
+            <li><b> Form: </b> <p>{{item.form}}</p> </li>
+            <li><b> Online Format:</b>  <p>{{item.online_format}}</p> </li>
+            <li><b> Source URL:</b> <p>{{item.source_URL}}</p> </li>
+            
+
         </ul>
     </div>
-    <div class="transcription">
-        Transcription: <p>{{item.transcription}}</p>
-    </div>
+  
     
 </div>
 {% endblock %}
