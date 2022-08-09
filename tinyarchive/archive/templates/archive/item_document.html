@@ -7,6 +7,9 @@
 <div class="page_title">
     {{item.name}}
 </div>
+<div class="page_title">
+    {{item.title}}
+</div>
 <div class="content">
     <div class="image">
         {% if item.pictures %}
@@ -19,13 +22,21 @@
     </div>
     <div class="info">
         <ul>
-            <li>Language: {{item.language}}</li>
             <li>Description: <p>{{item.description}}</p> </li>
+            <li>Language: {{item.language}}</li>
+            <li>Contributor Names: <p>{{item.contributor_names}}</p> </li>
+            <li>Location Published: <p>{{item.location_published}}</p> </li>
+            <li>Subject Headings: <p>{{item.subject_headings}}</p> </li>
+            <li>Summary: <p>{{item.summary}}</p> </li>
+            <li>Genre: <p>{{item.genre}}</p> </li>
+            <li>Form: <p>{{item.form}}</p> </li>
+            <li>Online Format: <p>{{item.online_format}}</p> </li>
+            <li>Source URL: <p>{{item.source_URL}}</p> </li>
+            <li>PDF: <p>{{item.PDF}}</p> </li>
+
         </ul>
     </div>
-    <div class="transcription">
-        Transcription: <p>{{item.transcription}}</p>
-    </div>
+  
     
 </div>
 {% endblock %}

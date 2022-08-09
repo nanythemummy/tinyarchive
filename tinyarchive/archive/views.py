@@ -76,7 +76,18 @@ def item_detail(request, item_id):
             context["item"]["3dmodel"] = archive_item.model3d
             template_to_render = "archive/item_artifact.html"
         else:
-            context["item"]["transcription"] = archive_item.transcription
+            # archive document:
+            # context["item"]["transcription"] = archive_item.transcription
+            context["item"]["title"] = archive_item.title
+            context["item"]["contributor_names"] = archive_item.contributor_names
+            context["item"]["location_published"] = archive_item.location_published
+            context["item"]["subject_headings"] = archive_item.subject_headings
+            context["item"]["summary"] = archive_item.summary
+            context["item"]["genre"] = archive_item.genre
+            context["item"]["form"] = archive_item.form
+            context["item"]["online_format"] = archive_item.online_format
+            context["item"]["source_URL"] = archive_item.source_URL
+            context["item"]["PDF"] = archive_item.PDF
             context["item"]["language"] = archive_item.language
             template_to_render = "archive/item_document.html"
 
