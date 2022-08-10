@@ -53,13 +53,15 @@ class Photograph(ArchiveDocument):
 class Artifact(ArchiveDocument):
     MAT_INORGANIC = 'Inorganic'
     MAT_ORGANIC = 'Organic'
-
     MATERIAL_CHOICES = [(MAT_INORGANIC, "Inorganic"),
                         (MAT_ORGANIC, "Organic")]
-
-    material = models.CharField(
+    year = models.TextField()
+    price = models.TextField()
+    skin_type = models.TextField()
+    organic = models.CharField(
         max_length=50, choices=MATERIAL_CHOICES, default=MAT_INORGANIC)
-    model3d = models.URLField(max_length=500, blank="True")
+    ingredients = models.TextField()
+    #model3d = models.URLField(max_length=500, blank="True")
 
 
 class Document(ArchiveDocument):
