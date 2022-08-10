@@ -23,7 +23,10 @@
     </div>
     <div class="info">
         <ul>
-            <li><b> PDF:</b> <p>{{item.PDF}}</p> </li>
+            <!-- <li><b> PDF:</b> <p>{{item.PDF}}</p> </li> -->
+            <li><b> PDF:</b> <p> 
+                <a href={{item.PDF}}>{{item.PDF}}</a></p></li>
+
             <li><b> Description:</b>  <p>{{item.description}}</p> </li>
             <li><b> Language:</b>  <p>{{item.language}}</p></li>
             <li><b> Contributor Names:</b>  <p>{{item.contributor_names}}</p> </li>

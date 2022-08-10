@@ -29,7 +29,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/vagrant/final_project/tinyarchive/tinyarchive/myvenv"
+set -gx VIRTUAL_ENV "/home/vagrant/actual/tinyarchive/tinyarchive/myvenv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
