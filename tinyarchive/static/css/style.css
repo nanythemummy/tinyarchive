@@ -1,3 +1,32 @@
-h1{
-    color:blueviolet;
+h1   {
+    color:cream;
+    background-color: #fffcc9;
+    text-align: center;
 }
+body {
+    background-color: #fefbea;
+  }
+body,h1 {font-family: "Noto Sans", sans-serif}
+
+
+a:link {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: grey;
+  }
+  
+  a:active {
+    text-decoration: underline;
+  }
+
+li {
+    display: inline;
+  }
