@@ -3,15 +3,44 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
-    <title>"The Tiny Library"</title>
+    <title>"Home"</title>
+    <div class="w3-top">
+        <div class="w3-row w3-padding w3-black">
+          <div class="w3-col s3">
+            <a href="/" class="w3-button w3-block w3-black">HOME</a>
+          </div>
+          <div class="w3-col s3">
+            <a href="/archive" class="w3-button w3-block w3-black">ARCHIVES</a>
+          </div>
+          <div class="w3-col s3">
+            <a href="/exhibit" class="w3-button w3-block w3-black">EXHIBITS</a>
+          </div>
+          <div class="w3-col s3">
+            <a href="/aboutus" class="w3-button w3-block w3-black">ABOUT US</a>
+          </div>
+        </div>
+      </div>
+        <p>
+        </p>
+    </div>
 </head>
 
 <body data-media-url="{% get_media_prefix %}">
     {% block content %}
     {% endblock %}
+    <div class = "w3-red">
+        <ul>
+            <a href="/" class="w3-bar-item w3-button">Home</a>
+            <a href="/archive" class="w3-bar-item w3-button">Archives</a>
+            <a href="/exhibit" class="w3-bar-item w3-button">Exhibits</a>
+            <a href="/aboutus" class="w3-bar-item w3-button">About Us</a>
+        </ul>
+    </div>
 </body>
+
 
 </html>

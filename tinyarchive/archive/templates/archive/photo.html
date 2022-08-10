@@ -1,21 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="breadcrumb">
-    <a href="/"> Tiny Library </a> / <a href="/archive/"> Archive/ </a> <a href= "/archive/{{item.related_id}}"> {{item.related_name}} </a>
-</div>
-<div class="page_title">
-    {{item.name}}
-</div>
-<div class="content">
-    <div class="image">
-        <img src="{% get_media_prefix %}{{ item.picture }}"  alt="{{ item.name }}">
+
+<div class="w3-sand w3-grayscale w3-large ">
+    <div class="w3-padding-64">
+        <div class="w3-bar w3-border w3-row-padding" style="margin-top:28px">
+            <a href= "/archive/{{item.related_id}}"> Back to {{item.related_name}} </a>
+        </div>
     </div>
-    <div class="info">
-        <ul>
-            <!-- <li>Creator: {{item.creator}}</li> -->
-            <li>Description: <p>{{item.description}}</p> </li>
-        </ul>
-    </div>  
+    <div class="w3-content" style="max-width:1000px">
+        <h3><p><strong>{{title.name}} </strong></p></h3>
+        <div class="content">
+            <div class="image">
+                <img src="{% get_media_prefix %}{{ item.picture }}"  alt="{{ item.name }}">
+            </div>
+            <div class="w3-padding-16">
+                <ul>
+                    <!-- <li>Creator: {{item.creator}}</li> -->
+                    <li><strong class="w3-xlarge">Description: </strong><i><p class = 'b' style = 'white-space: pre-wrap;'>{{item.description}}</p></i> </li>
+                </ul>
+            </div>  
+        </div>
 </div>
 {% endblock %}
+
+    
+    
