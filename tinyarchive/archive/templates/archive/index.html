@@ -1,40 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="page_title">
-    <h1> The COVID-19 Web Archive </h1>
- </div>
+<div class="w3-sand w3-grayscale w3-large ">
 
-<div class="breadcrumb">
-    <a href="/"> Tiny Library </a>
-    <p>
-    </p>
-</div>
+    <div class="w3-container" id="about us">
+        <div class="w3-content" style="max-width:700px">
+            <h2 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">The ARCHIVES</span></h2>
+            </div>
+        </div> 
 
-<div class="page_title">
-    <h2>
-        The Archive
-    </h2>
-</div>
 
-<div class="content">
+<div class="w3-row w3-content w3-margin-top" style="max-width:1200px">
     {% if archive_items %}
     <table>
         <thead>
-            <th> Preview </th>
-            <th> Name </th>
-            <th> Description </th>
+            <div class="w3-third w3-justify w3-container">
+                <th><h3><strong> Preview </strong></h3></th>
+            </div>
+            <div class="w3-third w3-justify w3-container">
+                <th><h3><strong> Name </strong></h3></th>
+            </div>
+            <div class="w3-third w3-justify w3-container">
+                <th><h3><strong> Description </strong></h3></th>
+            </div>
         </thead>
         <tbody>
             {% for item in archive_items %}
             <tr>
                 {% if item.thumbnail %}
-                    <td><a href="{{item.id}}"><img src="{% get_media_prefix %}{{item.thumbnail}}"></td>
+                    <td><a href="{{item.id}}"><img src="{% get_media_prefix %}{{item.thumbnail}}" width = '352' height = '456'></td>
                 {% else %}
                     <td></td>
                 {% endif %}
-                <td><a href="{{item.id}}">{{item.name}}</a></td>
-                <td>{{item.description}}</td>
+                <td><p class = 'b' style = 'white-space: pre-wrap;'><a href="{{item.id}}">{{item.name}}</a></p></td>
+                <td><p class = 'b' style = 'white-space: pre-wrap;'>{{item.description}}</p></td>
             </tr>
             {% endfor %}
         </tbody>
@@ -43,5 +42,4 @@
     <p>No items in the archive yet!</p>
     {% endif %}
 </div>
-
 {% endblock %}

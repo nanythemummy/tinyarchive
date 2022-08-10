@@ -1,45 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="breadcrumb">
-    <a href="/"> Tiny Library </a> / <a href= "/archive"> Archive </a>
-</div>
-<div class="page_title">
-    {{item.name}}
-</div>
-<div class="page_title">
-   <b> Title:</b> {{item.title}}</li>
 
-</div>
-<div class="content">
-    <div class="image">
-        {% if item.pictures %}
-        <div class = "gallery"></div>
-        {% for pic in item.pictures %}
-            <a href="/archive/photos/{{pic.id}}"> <img src="{% get_media_prefix %}{{ pic.picture }}" alt="{{ item.name }}"> </a>
-        {% endfor %}
+<div class="w3-sand w3-grayscale w3-large">
+    <div class="w3-content" style="max-width:1000px">
+        <div class="w3-padding-64 center">
+            {% if item.pictures %}
+            <div class = "center">
+            {% for pic in item.pictures %}
+            <a href="/archive/photos/{{pic.id}}"> <img src="{% get_media_prefix %}{{pic.picture}}" alt="{{ item.name }}"> </a>
+            {% endfor %}
+            </div>
+        {% endif %}
         </div>
-    {% endif %}
-    </div>
-    <div class="info">
-        <ul>
-            <li><b> PDF:</b> <p>{{item.PDF}}</p> </li>
-            <li><b> Description:</b>  <p>{{item.description}}</p> </li>
-            <li><b> Language:</b>  <p>{{item.language}}</p></li>
-            <li><b> Contributor Names:</b>  <p>{{item.contributor_names}}</p> </li>
-            <li><b> Location Published:</b>  <p>{{item.location_published}}</p> </li>
-            <li><b> Summary:</b>  <p>{{item.summary}}</p> </li>
-            <li><b> Subject Headings:</b>  
-                <p>{{item.subject_headings}}</p> </li>
-            <li><b> Genre:</b>  <p>{{item.genre}}</p> </li>
-            <li><b> Form: </b> <p>{{item.form}}</p> </li>
-            <li><b> Online Format:</b>  <p>{{item.online_format}}</p> </li>
-            <li><b> Source URL:</b> <p>{{item.source_URL}}</p> </li>
-            
-
-        </ul>
-    </div>
-  
+    <div class="w3-content" style="max-width:1000px">
+        <h2 class="w3-padding-32"><span class="w3-tag w3-wide">{{item.name}}: </strong></p></h2>
+        <b class="w3-xlarge"> Title:</b> {{item.title}}</li>
+        <div class="info">
+            <ul>
+                <li><b class="w3-xlarge"> PDF:</b> <i><p class = 'b'>{{item.PDF}}</p></i> </li>
+                <li><b class="w3-xlarge"> Description:</b><i><p class = 'b'>{{item.description}}</p></i> </li>
+                <li><b class="w3-xlarge"> Language:</b><i><p class = 'b'>{{item.language}}</p></i></li>
+                <li><b class="w3-xlarge"> Contributor Names:</b><i>  <p class = 'b'>{{item.contributor_names}}</p></i> </li>
+                <li><b class="w3-xlarge"> Location Published:</b> <i><p class = 'b'>{{item.location_published}}</p></i> </li>
+                <li><b class="w3-xlarge"> Summary:</b><i>  <p class = 'b'>{{item.summary}}</p> </i></li>
+                <li><b class="w3-xlarge"> Subject Headings:</b>  
+                    <i><p class = 'b'>{{item.subject_headings}}</p></i> </li>
+                <li><b class="w3-xlarge"> Genre:</b> <i> <p class = 'b'>{{item.genre}}</p> </i></li>
+                <li><b class="w3-xlarge"> Form: </b><i> <p class = 'b'>{{item.form}}</p> </i></li>
+                <li><b class="w3-xlarge"> Online Format:</b> <i> <p class = 'b'>{{item.online_format}}</p> </i></li>
+                <li><b class="w3-xlarge"> Source URL:</b> <i><p class = 'b'>{{item.source_URL}}</p></i> </li>
+                
     
+            </ul>
+        </div>
+    </div>
 </div>
 {% endblock %}
