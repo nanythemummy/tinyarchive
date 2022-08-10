@@ -80,6 +80,7 @@ def item_detail(request, item_id):
             # context["item"]["transcription"] = archive_item.transcription
             context["item"]["title"] = archive_item.title
             context["item"]["contributor_names"] = archive_item.contributor_names
+            context["item"]["language"] = archive_item.language
             context["item"]["location_published"] = archive_item.location_published
             context["item"]["subject_headings"] = archive_item.subject_headings
             context["item"]["summary"] = archive_item.summary
