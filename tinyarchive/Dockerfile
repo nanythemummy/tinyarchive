@@ -2,7 +2,7 @@ FROM python:3.9
 
 # Setup remote working directory into which the code ges copied.
 
-WORKDIR /dighum150 
+WORKDIR /tinyarchive 
 
 #Setup Pip and its requirements.
 
@@ -11,8 +11,7 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 #Copy in the code last so that can use caching and doesn't have to redownload the above
-COPY tinyarchive/ .
-
+COPY . .
 
 #Run the test server
 EXPOSE 8000
