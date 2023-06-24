@@ -130,10 +130,3 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-#Media files which shouldn't be in source control
-*.png
-*.PNG
-*.jpg
-*.JPG
-*.jpeg
-*.JPEG
