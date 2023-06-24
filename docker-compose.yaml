@@ -1,9 +1,9 @@
-version: "3.7"
 services:
   tinyarchive:
     build: tinyarchive
     restart: always
     ports:
       - 8000:8000
+      - 5678:5678
     volumes:
       - "./tinyarchive:/tinyarchive"
