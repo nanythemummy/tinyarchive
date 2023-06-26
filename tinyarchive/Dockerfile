@@ -1,19 +1,28 @@
-FROM python:alpine
+FROM python:3.11 
 
 
-#Apt get all the c libraries that Pillow needs to compile against
-#also get gcc.
+#disable pip cache because we aren't going to need it, 
+#and make it so that log messages show up immediately.
+#This follows instructions on
+# https://medium.com/vantageai/how-to-make-your-python-docker-images-secure-fast-small-b3a6870373a0
 
-RUN apk add --update build-base tiff-dev jpeg-dev openjpeg-dev zlib-dev freetype-dev lcms2-dev \
-    libwebp-dev tcl-dev tk-dev harfbuzz-dev fribidi-dev libimagequant-dev \
-    libxcb-dev libpng-dev
+ENV PYTHONUNBUFFERED=1 \ 
+    PIP_NO_CACHE_DIR=1
+
+RUN set -ex \
+    && apt-get update \
+    && apt-get upgrade -y \
+    && apt-get autoremove -y \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
+
 
 # Setup remote working directory into which the code ges copied.
 RUN mkdir /tinyarchive
 WORKDIR /tinyarchive 
 
-
 #Setup Pip and its requirements.
+
 COPY requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
