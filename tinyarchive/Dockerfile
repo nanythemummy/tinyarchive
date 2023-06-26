@@ -1,8 +1,5 @@
-FROM python:3.11 as build
+FROM python:3.11 
 
-# Setup remote working directory into which the code ges copied.
-RUN mkdir /tinyarchive
-WORKDIR /tinyarchive 
 
 #disable pip cache because we aren't going to need it, 
 #and make it so that log messages show up immediately.
@@ -19,7 +16,13 @@ RUN set -ex \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
+
+# Setup remote working directory into which the code ges copied.
+RUN mkdir /tinyarchive
+WORKDIR /tinyarchive 
+
 #Setup Pip and its requirements.
+
 COPY requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
