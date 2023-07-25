@@ -10,3 +10,4 @@ class DocumentAdmin(admin.ModelAdmin):
 admin.site.register(Photograph,DocumentAdmin)
 admin.site.register(Document, DocumentAdmin)
 admin.site.register(Artifact,DocumentAdmin)
+admin.site.register(AudioRecording, DocumentAdmin)
