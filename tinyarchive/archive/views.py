@@ -75,12 +75,13 @@ def item_detail(request, item_id):
             context["item"]["material"] = archive_item.material
             context["item"]["3dmodel"] = archive_item.model3d
             template_to_render = "archive/item_artifact.html"
+
         elif isinstance(archive_item, AudioRecording):
             context["item"]["speaker"] = archive_item.speaker
             context["item"]["audio_file"] = archive_item.audio_file
             context["item"]["recording_date"] = archive_item.recording_date
             context["item"]["language"] = archive_item.language
-            template_to_render = "archilve/item_audiofile"
+            template_to_render = "archive/item_audiofile.html"
         else:
             context["item"]["transcription"] = archive_item.transcription
             context["item"]["language"] = archive_item.language
