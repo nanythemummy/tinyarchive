@@ -40,7 +40,12 @@ class AssociatedImage(models.Model):
     def __str__(self):
         return(self.photo_image.url)
 
-
+class AudioRecording(ArchiveDocument):
+    language = models.CharField(max_length=200)
+    speaker = models.CharField(max_length=200, blank = True)
+    recording_date = models.DateField(auto_now=True)
+    audio_file = models.FileField(upload_to="sounds/", null=True)
+    
 class Photograph(ArchiveDocument):
     photo_type = models.CharField(
         max_length=20,
