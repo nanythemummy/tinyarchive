@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="breadcrumb">
+    <a href="/"> Tiny Library </a> / <a href= "/archive"> Archive </a>
+</div>
+<div class="page_title">
+    {{item.name}}
+</div>
+<div class="content">
+    <div class="image">
+        {% if item.pictures %}
+        <div class = "gallery"></div>
+        {% for pic in item.pictures %}
+            <a href="/archive/photos/{{pic.id}}"> <img src="{% get_media_prefix %}{{ pic.picture }}" alt="{{ item.name }}"> </a>
+        {% endfor %}
+        </div>
+    {% endif %}
+    </div>
+    <div class="info">
+        <ul>
+            <li>Language: {{item.language}}</li>
+            <li>Description: <p>{{item.description}}</p> </li>
+            <li>Speaker: {{item.speaker}}</li>
+            <li>Date: {{item.recording_date}}</li>
+            <li><audio controls>
+                <source src ="{% get_media_prefix %}{{ item.audio_file }}" type="audio/mpeg"/> 
+               
+            </audio></li>
+                 
+        </ul>
+    </div>
+{% endblock %}
