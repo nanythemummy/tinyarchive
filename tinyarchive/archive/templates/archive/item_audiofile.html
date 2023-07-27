@@ -23,7 +23,11 @@
             <li>Description: <p>{{item.description}}</p> </li>
             <li>Speaker: {{item.speaker}}</li>
             <li>Date: {{item.recording_date}}</li>
-            <li><audio src ="{% get_media_prefix %}{{ item.audio_file }}">does it work?</audio></li>
+            <li><audio controls>
+                <source src ="{% get_media_prefix %}{{ item.audio_file }}" type="audio/mpeg"/> 
+               
+            </audio></li>
+                 
         </ul>
     </div>
 {% endblock %}
