@@ -21,8 +21,8 @@
         <ul>
             <li>Language: {{item.language}}</li>
             <li>Description: <p>{{item.description}}</p> </li>
-            <li>Speaker: {{item.speaker}}</li>
-            <li>Date: {{item.recording_date}}</li>
+            <li>Artist/Band: {{item.speaker}}</li>
+            <li>Release Date: {{item.recording_date}}</li>
             <li><audio controls>
                 <source src ="{% get_media_prefix %}{{ item.audio_file }}" type="audio/mpeg"/> 
                
