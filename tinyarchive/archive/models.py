@@ -24,12 +24,41 @@ class ArchiveDocument(models.Model):
     )
 
 
-class AssociatedImage(models.Model):
 
+
+class AudioRecording(ArchiveDocument):
+    language = models.CharField(max_length=200)
+    artist = models.CharField(max_length=200, blank = True)
+    recording_date = models.DateField(auto_now=True)
+    audio_file = models.FileField(upload_to="sounds/", null=True, blank=True)
+
+class Genre(models.Model):
+    def __str__(self):
+        if self.name:
+            return self.name
+        else:
+            return self.id
+    name = models.CharField(max_length=200, blank = True)
+
+class GenreToRecord(models.Model):
+    record = models.ForeignKey(
+        AudioRecording, blank=False, null=False, on_delete=models.CASCADE)
+    genre = models.ForeignKey(
+        Genre, blank=False, null=False, on_delete=models.CASCADE)
+
+#class subGenre(Genre):
+    #subgenre = models.CharField(max_length=200, blank = True)
+
+class AssociatedImage(models.Model):
+    
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     associated_doc = models.ForeignKey(
         ArchiveDocument, blank=False, null=False, on_delete=models.CASCADE)
+    associated_doc1 = models.ForeignKey(
+         GenreToRecord, blank=True, null=True, on_delete=models.CASCADE)
+    associated_doc2 = models.ForeignKey(
+         Genre, blank=True, null=True, on_delete=models.CASCADE)
     creator = models.CharField(max_length=200, blank=True)
     photo_image = StdImageField(
         upload_to="photographs/",
@@ -40,13 +69,10 @@ class AssociatedImage(models.Model):
     def __str__(self):
         return(self.photo_image.url)
 
-class AudioRecording(ArchiveDocument):
-    language = models.CharField(max_length=200)
-    speaker = models.CharField(max_length=200, blank = True)
-    recording_date = models.DateField(auto_now=True)
-    audio_file = models.FileField(upload_to="sounds/", null=True)
-    
+
+
 class Photograph(ArchiveDocument):
+
     photo_type = models.CharField(
         max_length=20,
         choices=list(

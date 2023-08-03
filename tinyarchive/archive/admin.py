@@ -1,5 +1,5 @@
 from django.contrib import admin
-from archive.models import AudioRecording, Photograph,Document,AssociatedImage, Artifact
+from archive.models import Genre, GenreToRecord, AudioRecording, Photograph,Document,AssociatedImage, Artifact
 # Register your models here.
 
 class AssociatedImageInline(admin.StackedInline):
@@ -11,3 +11,5 @@ admin.site.register(Photograph,DocumentAdmin)
 admin.site.register(Document, DocumentAdmin)
 admin.site.register(Artifact,DocumentAdmin)
 admin.site.register(AudioRecording,DocumentAdmin)
+admin.site.register(Genre,DocumentAdmin)
+admin.site.register(GenreToRecord,DocumentAdmin)
