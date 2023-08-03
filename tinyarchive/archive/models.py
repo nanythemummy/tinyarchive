@@ -58,15 +58,17 @@ class Photograph(ArchiveDocument):
 class Artifact(ArchiveDocument):
     MAT_OTHER = 'other'
     MAT_PLASTIC = 'plastic'
-    MAT_CERAMIC = 'ceramic'
+    MAT_CLAY = 'clay'
     MAT_GLASS = 'glass'
     MAT_METAL = 'metal'
+    MAT_PAPER = "paper"
 
     MATERIAL_CHOICES = [(MAT_OTHER, "Other"),
                         (MAT_PLASTIC, "Plastic"),
-                        (MAT_CERAMIC, "Ceramic"),
+                        (MAT_CLAY, "Clay"),
                         (MAT_GLASS, "Glass"),
-                        (MAT_METAL,"Metal")]
+                        (MAT_METAL,"Metal"),
+                        (MAT_PAPER, "Paper")]
     material = models.CharField(
         max_length=50, choices=MATERIAL_CHOICES, default=MAT_GLASS)
     model3d = models.URLField(max_length=500, blank="True")
