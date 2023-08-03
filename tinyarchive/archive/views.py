@@ -81,6 +81,8 @@ def item_detail(request, item_id):
             context["item"]["audio_file"] = archive_item.audio_file
             context["item"]["recording_date"] = archive_item.recording_date
             context["item"]["language"] = archive_item.language
+            context["item"]["record_label"] = archive_item.record_label
+            context["item"]["genre"] = archive_item.genre
             template_to_render = "archive/item_audiofile.html"
         else:
             context["item"]["transcription"] = archive_item.transcription

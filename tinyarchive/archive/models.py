@@ -24,14 +24,6 @@ class ArchiveDocument(models.Model):
     )
 
 
-
-
-class AudioRecording(ArchiveDocument):
-    language = models.CharField(max_length=200)
-    artist = models.CharField(max_length=200, blank = True)
-    recording_date = models.DateField(auto_now=True)
-    audio_file = models.FileField(upload_to="sounds/", null=True, blank=True)
-
 class Genre(models.Model):
     def __str__(self):
         if self.name:
@@ -40,11 +32,21 @@ class Genre(models.Model):
             return self.id
     name = models.CharField(max_length=200, blank = True)
 
+class AudioRecording(ArchiveDocument):
+    language = models.CharField(max_length=200)
+    artist = models.CharField(max_length=200, blank = True)
+    recording_date = models.DateField(auto_now=True)
+    audio_file = models.FileField(upload_to="sounds/", null=True, blank=True)
+    genre = models.ManyToManyField(Genre, related_name='genre')
+    record_label = models.CharField(max_length=200, blank = True)
+
+
+
 class GenreToRecord(models.Model):
     record = models.ForeignKey(
-        AudioRecording, blank=False, null=False, on_delete=models.CASCADE)
+        AudioRecording, blank=False, null=True, on_delete=models.CASCADE)
     genre = models.ForeignKey(
-        Genre, blank=False, null=False, on_delete=models.CASCADE)
+        Genre, blank=False, null=True, on_delete=models.CASCADE)
 
 #class subGenre(Genre):
     #subgenre = models.CharField(max_length=200, blank = True)
