@@ -24,5 +24,5 @@ urlpatterns = [
     path('', views.home),
     path('archive/',include('archive.urls')),
     path('exhibit/', include ('exhibit.urls')),
-    path('about_us/', include ('about_us.urls')),
+    path('about_us/', views.about_us),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

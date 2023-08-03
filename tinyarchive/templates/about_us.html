@@ -1,17 +1,17 @@
+{% extends 'base.html' %}
 {% load static %}
-<!doctype html>
-<html lang="en">
+{% block content %}
+<div class="page_title">
+   <h1> About Us </h1>
+</div>
+<div class="intro">
+    Welcome to the About Us! We are happy to meet you! We are small, but still growing.
+</div>
+<ul>
+    <li>Noah</a> </li>
+    <li>Rhyu</a></li>
+    <li>Rhea</a></li>
+    <li>Jasmine</a></li>
+</ul>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
-        <title>"The Tiny Library"</title>
-    </head>
-
-    <body data-media-url="{% get_media_prefix %}">
-        {% block content %}
-        {% endblock %}
-    </body>
-
-</html>
+{% endblock %}
