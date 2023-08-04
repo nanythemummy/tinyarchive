@@ -1,7 +1,7 @@
 from re import template
 from django.shortcuts import render
 from django.http import HttpResponse
-from archive.models import AudioRecording,ArchiveDocument, Photograph, AssociatedImage, Artifact
+from archive.models import *
 from model_utils.managers import InheritanceManager
 from archive.consts import Choices
 
@@ -82,6 +82,14 @@ def item_detail(request, item_id):
             context["item"]["recording_date"] = archive_item.recording_date
             context["item"]["language"] = archive_item.language
             template_to_render = "archive/item_audiofile.html"
+            
+        elif isinstance(archive_item, Sculpture):
+            context["item"]["material"] = archive_item.material
+            context["item"]["location"] = archive_item.location
+            context["item"]["installed year"] = archive_item.installed_year
+            context["item"]["designer"] = archive_item.designer
+            context["item"]["sculptor"] = archive_item.sculptor
+            template_to_render = "archive/item_sculpture.html"
         else:
             context["item"]["transcription"] = archive_item.transcription
             context["item"]["language"] = archive_item.language
