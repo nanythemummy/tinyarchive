@@ -1,3 +1,6 @@
+html{
+	background-image: url("/static/css/background.png");
+}
 
 h1{
     color:rgb(86, 44, 7);
