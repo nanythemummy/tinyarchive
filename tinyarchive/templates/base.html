@@ -1,14 +1,17 @@
 {% load static %}
 <!doctype html>
 <html lang="en">
-
+    <style> html{background-image: url("static/css/background.png");}</style>
+    
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/bearstyle.css' %}"/>
         <title>"The Tiny Library"</title>
+        
     </head>
 
+    
     <body data-media-url="{% get_media_prefix %}">
         {% block content %}
         {% endblock %}
