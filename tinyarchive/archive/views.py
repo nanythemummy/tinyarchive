@@ -43,12 +43,15 @@ def photo_detail(request,item_id):
     context = {}
     context["item"]={
         "name":img.name,
-        "creator:":img.creator,
+        "creator":img.creator,
         "description":img.description,
         "picture":img.photo_image,
         "related_id":img.associated_doc.id,
         "related_name":img.associated_doc.name
     }
+
+    print(context)
+
     return render(request,"archive/photo.html",context)
 
 def item_detail(request, item_id):
