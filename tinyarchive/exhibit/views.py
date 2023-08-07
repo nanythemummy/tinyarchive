@@ -25,7 +25,6 @@ def exhibit_index(request):
     context["exhibits"] = exhibits
     return render(request, "exhibit/index.html", context)
 
-
 def exhibit_detail(request, exhibit_id):
     context = {}
     exhibit = Exhibit.objects.get(id=exhibit_id)
