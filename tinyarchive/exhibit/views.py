@@ -25,6 +25,7 @@ def exhibit_index(request):
     context["exhibits"] = exhibits
     return render(request, "exhibit/index.html", context)
 
+# testing merge
 
 def exhibit_detail(request, exhibit_id):
     context = {}
