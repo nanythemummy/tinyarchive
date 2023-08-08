@@ -68,7 +68,7 @@ class Artifact(ArchiveDocument):
                         (MAT_GLASS, "Glass"),
                         (MAT_METAL,"Metal")]
     material = models.CharField(
-        max_length=50, choices=MATERIAL_CHOICES, default=MAT_GLASS)
+        max_length=50, choices=MATERIAL_CHOICES, default=MAT_GLASS)   
     model3d = models.URLField(max_length=500, blank="True")
 
 
@@ -78,3 +78,22 @@ class Document(ArchiveDocument):
     # and codes?
     language = models.CharField(max_length=200)
     transcription = models.TextField(blank=True, null=False)
+
+class Sculpture(ArchiveDocument):
+    MAT_OTHER = 'other'
+    MAT_PLASTIC = 'plastic'
+    MAT_CERAMIC = 'ceramic'
+    MAT_GLASS = 'glass'
+    MAT_METAL = 'metal'
+
+    MATERIAL_CHOICES = [(MAT_OTHER, "Other"),
+                        (MAT_PLASTIC, "Plastic"),
+                        (MAT_CERAMIC, "Ceramic"),
+                        (MAT_GLASS, "Glass"),
+                        (MAT_METAL,"Metal")]
+    material = models.CharField(max_length=50, choices=MATERIAL_CHOICES, default=MAT_METAL)   
+    location = models.CharField(max_length=200, blank = True)
+    installed_year = models.CharField(max_length=4, blank = True)
+    designer = models.CharField(max_length=20, blank = True)
+    sculptor = models.CharField(max_length=20, blank = True)
+    #size: length, width, height (cm)
