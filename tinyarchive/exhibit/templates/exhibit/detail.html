@@ -5,29 +5,29 @@
     <a href="/"> Tiny Library </a> / <a href="/exhibit"> Exhibits </a>
 </div>
 <div class="page_title">
-    {{title}}
+    <h2>{{title}}</h2>
 </div>
 <div class="content">
     <div class="exhibit_items">
-        <ul>
+    
             {% for item in exhibit_items %}
-            <li>
+    
                 <div class="exhibit_item">
-                    <ul>
+                
                         {% if item.image %}
-                        <li><a href="/archive/{{item.id}}"><img src="{% get_media_prefix %}{{item.image}}" /></a></li>
+                        <a href="/archive/{{item.id}}"><img src="{% get_media_prefix %}{{item.image}}" /></a></li>
                         {% endif %}
-                        <li><a href="/archive/{{item.id}}">{{item.name}}</a></li>
+                        <li><h3><a href="/archive/{{item.id}}">{{item.name}}</a></h3></li>
   
-                        <li>{{item.description}}</li>
-                    </ul>
+                        <h3><li>{{item.description}}</li></h3>
+                    
                 </div>
-            </li>
+            
             {% endfor %}
-        </ul>
+        
     </div>
     <div class="exhibit_text">
-        {{exhibit_text}}
+        <h3>{{exhibit_text}}</h3>
     </div>
 </div>
 
