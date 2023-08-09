@@ -1,3 +1,73 @@
-h1{
-    color:rgb(206, 192, 255);
+
+
+
+body {
+    align-Items: 'center';
+    justify-Content: 'center';
+    background-image: url('backgroundimg.jpg'), url("backgroundimg2.jpg"); 
+    background-size: cover;
+    background-position:top;
+    background-repeat: repeat;
+    background-attachment: auto;
+    vertical-align: top;
+    max-height: 100px;
+    height: auto;
+    max-width: 100%;
+    width: auto;
+    padding: 25px; 
+  }
+  
+  title{
+    font-weight: bold;
+    font-family: Helvetica;
+     }
+
+  h2 {
+    color: #000000;
+  font-weight: bold;
+  font-family: Helvetica;
+  font-size: 40px;
+  padding-top: 50px;
+  text-align: center;
+     }
+
+  h1 {
+      color: blue;
+    font-weight: bold;
+    font-family: Helvetica;
+    text-align: center;
+    padding-top: 75px;
+  }
+  
+  h3 {
+      color: black;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  h4 {
+    color: black;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 25px;
+  text-align: center;
+  padding-top: 50px;
 }
+  
+  p{
+  color: #000000;
+  font-family: 'Times New Roman';
+  text-align: center;
+  }
+
+  img{
+    border: 50px soild black;
+    border-radius: 25px; 
+    padding: 50px;
+    width: 350px;
+    height: 350x;
+    justify-content: center;
+    
+  } 
