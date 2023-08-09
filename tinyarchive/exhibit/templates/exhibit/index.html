@@ -5,14 +5,16 @@
     <a href="/"> Tiny Library </a>
 </div>
 <div class="page_title">
-    Exhibits
+    <h1>Exhibits</h1>
 </div>
 <div class="content">
     {% if exhibits %}
     <ul>
         {% for exhibit in exhibits %}
         <li>
+        <h2>
             <div class="exhibit"><a href="{{exhibit.id}}">{{exhibit.name}} </a> : {{exhibit.snippet}} </div>
+        </h2>
         </li>
         {% endfor %}
     </ul>
