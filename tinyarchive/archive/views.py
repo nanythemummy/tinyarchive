@@ -86,9 +86,14 @@ def item_detail(request, item_id):
         elif isinstance(archive_item, Sculpture):
             context["item"]["material"] = archive_item.material
             context["item"]["location"] = archive_item.location
-            context["item"]["installed year"] = archive_item.installed_year
+            context["item"]["installed_year"] = archive_item.installed_year
             context["item"]["designer"] = archive_item.designer
             context["item"]["sculptor"] = archive_item.sculptor
+            context["item"]["color"] = archive_item.color
+            context["item"]["length"] = archive_item.length
+            context["item"]["width"] = archive_item.width
+            context["item"]["height"] = archive_item.height
+            context["item"]["weight"] = archive_item.weight
             template_to_render = "archive/item_sculpture.html"
         else:
             context["item"]["transcription"] = archive_item.transcription

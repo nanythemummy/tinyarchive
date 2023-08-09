@@ -5,7 +5,7 @@
     <a href="/"> Bear Library </a> / <a href= "/archive"> Archive </a>
 </div>
 <div class="page_title">
-    {{item.name}}
+    <p><h2>{{item.name}}</h2></p>
 </div>
 <div class="content">
     <div class="image">
@@ -20,12 +20,17 @@
 
     <div class="info">
         <ul>
-            <li>Material: {{item.material}}</li>
-            <li>Description: <p>{{item.description}}</p> </li>
-            <li>Location: {{item.location}}</li>
-            <li>Install Year: {{item.installed_year}}</li>
-            <li>Designer: {{item.designer}}</li>
-            <li>Sculptor: {{item.sculptor}}</li>
+            <li><strong>Designer:</strong> {{item.designer}}</li>
+            <li><strong>Sculptor:</strong> {{item.sculptor}}</li>
+            <li><strong>Material:</strong> {{item.material}}</li>
+            <li><strong>Description:</strong> <p>{{item.description}}</p> </li>
+            <li><strong>Location:</strong> {{item.location}}</li>
+            <li><strong>Installed Year:</strong> {{item.installed_year}}</li>
+            <li><strong>Color:</strong> {{item.color}}</li>
+            <li><strong>Length(cm):</strong> {{item.length}}</li>
+            <li><strong>Width(cm):</strong> {{item.width}}</li>
+            <li><strong>Height(cm):</strong> {{item.height}}</li>
+            <li><strong>Weight(kg):</strong> {{item.weight}}</li>
         </ul>
     </div>
 

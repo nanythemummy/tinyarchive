@@ -80,20 +80,14 @@ class Document(ArchiveDocument):
     transcription = models.TextField(blank=True, null=False)
 
 class Sculpture(ArchiveDocument):
-    MAT_OTHER = 'other'
-    MAT_PLASTIC = 'plastic'
-    MAT_CERAMIC = 'ceramic'
-    MAT_GLASS = 'glass'
-    MAT_METAL = 'metal'
-
-    MATERIAL_CHOICES = [(MAT_OTHER, "Other"),
-                        (MAT_PLASTIC, "Plastic"),
-                        (MAT_CERAMIC, "Ceramic"),
-                        (MAT_GLASS, "Glass"),
-                        (MAT_METAL,"Metal")]
-    material = models.CharField(max_length=50, choices=MATERIAL_CHOICES, default=MAT_METAL)   
+    material = models.CharField(max_length=50, blank = True)   
     location = models.CharField(max_length=200, blank = True)
-    installed_year = models.CharField(max_length=4, blank = True)
+    color = models.CharField(max_length=50, blank = True)  
+    installed_year = models.CharField(max_length = 4, blank = True)
     designer = models.CharField(max_length=20, blank = True)
     sculptor = models.CharField(max_length=20, blank = True)
-    #size: length, width, height (cm)
+    length = models.CharField(max_length=20, blank = True) 
+    width = models.CharField(max_length=20, blank = True) 
+    height = models.CharField(max_length=20, blank = True) 
+    weight = models.CharField(max_length=20, blank = True)
+    
